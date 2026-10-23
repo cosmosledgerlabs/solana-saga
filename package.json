@@ -1,0 +1,32 @@
+{
+  "name": "@cosmosledgerlabs/solana-saga",
+  "version": "0.1.0",
+  "description": "Run a sequence of Solana transactions as a saga: when any step fails, the completed steps are compensated in reverse order (a confirmed transaction is offset by a new one, never 'rolled back'). Ships a hardened send/confirm engine: poll-based confirmation, rebroadcast under load, fresh-blockhash expiry retries, and a duplicate-send guard.",
+  "type": "module",
+  "license": "MIT",
+  "author": "COSMOS Ledger Labs Inc.",
+  "homepage": "https://cosmosledgerlabs.com/flow",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cosmosledgerlabs/solana-saga.git"
+  },
+  "keywords": [
+    "solana", "saga", "compensating-transaction", "orchestration",
+    "workflow", "web3", "spl-token", "devtool", "rollback", "atomicity"
+  ],
+  "main": "src/orchestrator.js",
+  "exports": { ".": "./src/orchestrator.js" },
+  "files": ["src", "examples", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node --test"
+  },
+  "peerDependencies": {
+    "@solana/web3.js": "^1.95.0",
+    "@solana/spl-token": "^0.4.0"
+  },
+  "peerDependenciesMeta": {
+    "@solana/web3.js": { "optional": true },
+    "@solana/spl-token": { "optional": true }
+  },
+  "engines": { "node": ">=18.18.0" }
+}
